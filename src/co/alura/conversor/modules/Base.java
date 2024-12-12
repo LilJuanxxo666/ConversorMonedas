@@ -43,13 +43,12 @@ public class Base {
         this.conversion_rates = conversion_rates;
     }
 
-    public void calculoDivisa(double valorConvertir) {
+    public String calculoDivisa(double valorConvertir) {
         for (Divisa divisa : conversion_rates) {
             if (!divisa.getNombre().equals(this.base_code)) {
-                System.out.println("------------------------------------------------------------------------------------");
-                System.out.println("El valor de " + valorConvertir + " [" + base_code + "] corresponde al valor final de =>>> " + valorConvertir*divisa.getValor() + " [" + divisa.getNombre()+ "]" );
-                System.out.println("------------------------------------------------------------------------------------");
+                return "El valor de " + valorConvertir + " [" + base_code + "] corresponde al valor final de =>>> " + valorConvertir*divisa.getValor() + " [" + divisa.getNombre()+ "]";
             }
         }
+        return "No se encontró la divisa";
     }
 }
